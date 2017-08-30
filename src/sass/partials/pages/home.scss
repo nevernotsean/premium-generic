@@ -1,8 +1,8 @@
 // home page
 .home {
-	#content {
-		margin-top: 0 !important;
-	}
+	// #content {
+	// 	margin-top: 0 !important;
+	// }
 	.features-grid {
 		.post-title {
 			font-size: 36px;
@@ -14,7 +14,7 @@
 	.hero {
 		position: relative;
 		padding-bottom: 0;
-		padding-top: 100px;
+		// padding-top: 100px;
 
 		height: calc(100vh - 100px);
 		overflow: hidden;
@@ -36,7 +36,7 @@
 			}
 		}
 		margin-bottom: 50px;
-		background-color: #000;
+		// background-color: #000;
 		> video {
 			// position: absolute;
 			// width: 100%;

@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: 'bundle.js',
-		publicPath: '/wp-content/themes/cg-nn-theme/dist/'
+		publicPath: '/wp-content/themes/premium-generic/dist/'
 	},
 	externals: {
 		foundation: 'foundation-sites',
