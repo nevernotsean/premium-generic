@@ -1,0 +1,73 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+			<div class="off-canvas position-right" id="offCanvas" data-off-canvas="">
+				<div class="offcanvas-wrapper">
+					<!-- <a href="#" class="menu-toggle text-right"><i class="fa fa-times"></i></a> -->
+					<button class="close-button" aria-label="Close menu" type="button" data-close>
+			      <span aria-hidden="true"><i class="fa fa-times"></i></span>
+			    </button>
+					<nav class="mobile-nav">
+						<ul class="mobile-links no-bullet text-center">
+							<li>
+								<a class="hdr-logo-link-mobile" href="{{site.url}}" rel="home">
+										<img src="{{theme.path}}/dist/img/logo-cinematic.svg" alt="">
+							</a>
+						</li>
+							{% include "menu.twig" with {'menu': menu.get_items} %}
+							<li><a class="siteby" href="http://www.never-not.com">site by nevernot</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="off-canvas-content" id="oc-content" data-off-canvas-content>
+				<header id="header" class="{% if function('is_home') %}hidden{% endif %}">
+					{% block header %}
+						<div class="grid-x wrapper hide-for-small-only">
+							<a class="nav-cap hdr-logo-link" href="{{site.url}}" rel="home">
+								<img class="spin" src="{{theme.path}}/static/img/logo-cinematic-c.gif" alt="">
+								<img class="static" src="{{theme.path}}/static/img/logo-cinematic-c.png" alt="">
+							</a>
+							<nav id="nav-main" class="auto cell" role="navigation">
+								<ul class="medium-8 menu-links menu simple">
+									{% include "menu.twig" with {'menu': menu.get_items} %}
+								</ul>
+							</nav>
+							<div class="nav-cap social-menu-expand">
+								Social
+								<ul class="social-menu menu">
+									{% include 'social-links.twig' %}
+								</ul>
+							</div>
+						</div>
+
+						<div class="mobile-top-bar show-for-small-only">
+							<a href="#" class="menu-toggle" data-toggle="offCanvas"><i class="fa fa-bars fa-2x"></i></a>
+							<img class="mobile-logo" src="{{theme.path}}/static/img/logo-cinematic-c.png" alt="">
+						</div>
+
+					{% endblock %}
+				</header>
+
+				<section id="content" role="main" class="pjax-content" rel="fillscreen">
+						{% block content %}
+							Sorry, no content
+						{% endblock %}
+				</section>
+
+				{% block footer %}
+					<footer id="footer">
+						{% include 'footer.twig' %}
+					</footer>
+					{{ function('wp_footer') }}
+				{% endblock %}
+			</div>
+
+	</body>
+</html>

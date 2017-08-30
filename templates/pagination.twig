@@ -1,0 +1,19 @@
+<div class="grid-x grid-padding-x align-center">
+	<ul class="pagination " role="navigation" aria-label="Pagination">
+		{% if pagination.prev %}
+	  	<li class="pagination-previous"><a href="{{pagination.prev.link}}" class="prev {{pagination.prev.link|length ? '' : 'invisible'}}">Prev</a></li>
+		{% endif %}
+		{% for page in pagination.pages %}
+				<li>
+						{% if page.link %}
+								<a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+						{% else %}
+								<span class="{{page.class}}">{{page.title}}</span>
+						{% endif %}
+				</li>
+		{% endfor %}
+		{% if pagination.next %}
+	  	<li class="pagination-next {{pagination.next.link|length ? '' : 'invisible'}}"><a class="prev {{pagination.next.link|length ? '' : 'invisible'}}" href="{{pagination.next.link}}" aria-label="Next page">Next</a></li>
+		{% endif %}
+	</ul>
+</div>

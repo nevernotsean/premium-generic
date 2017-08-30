@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<div class="blog-nav post-header">
+			<h1 class="base-title text-center">Blog</h1>
+			<div class="grid-container">
+				<div class="post-categories text-center grid-x grid-padding-x">
+						<div class="cell shrink"><a href="{{ site.url }}/blog/">All</a></div>
+					{% for category in categories %}
+						<div class="cell shrink"><a href="{{ site.url }}/{{ category | lower }}/">{{ category }}</a></div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="grid-container post-body">
+				{% include 'hero.twig' with { posts: posts|slice(null,1) } %}
+				<div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+					{% for post in posts|slice(1,null) %}
+						<div class="cell">
+							{% include 'tease-post.twig' %}
+						</div>
+					{% endfor %}
+				</div>
+				{% include 'pagination.twig' %}
+		</div>
+	</div><!-- /content-wrapper -->
+{% endblock %}

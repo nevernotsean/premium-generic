@@ -1,0 +1,105 @@
+article.article-item {
+	margin-bottom: 80px;
+	position: relative;
+
+	img {
+		position: relative;
+		z-index: 2;
+		border: 2px solid transparent;
+		&.border {
+			border: 2px solid #000;
+		}
+		&.hover {
+			position: absolute;
+			opacity: 0;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&.hoverable:hover {
+		img {
+			opacity: 0;
+			&.hover {
+				opacity: 1;
+			}
+		}
+	}
+	header,
+	footer {
+		line-height: 1;
+		padding: 20px 0 20px 0;
+		@include small-type;
+		font-size: 10px;
+	}
+	footer {
+		margin-top: 20px;
+
+		a {
+			@extend .arrow-link;
+		}
+	}
+	.post-title {
+		@include bold-title;
+		line-height: 1;
+		margin-bottom: 0;
+		font-size: 26px;
+	}
+
+	.post-tags {
+		display: none;
+	}
+
+	.post-content {
+		font-size: 11px;
+		padding: 20px 0 0 0;
+		letter-spacing: 0.02em;
+	}
+	// albums teasers
+	&.post-type-muso-album {
+		header,
+		footer,
+		.post-content {
+			display: none;
+		}
+		.post-title {
+			@extend h4;
+			margin-top: $spacing-base / 3;
+		}
+		.post-tags {
+			display: initial !important;
+		}
+		.post-artist {
+			font-size: 11px;
+			letter-spacing: 0.02em;
+		}
+		margin-bottom: $spacing-base / 3 !important;
+	}
+}
+
+.image-block {
+	position: relative;
+	display: block;
+	.overlay {
+		position: absolute;
+		text-align: center;
+		padding: 10px;
+		width: 100%;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		h2 {
+			@include bold-title;
+		}
+		h2,
+		p {
+			color: #fff;
+		}
+		p {
+			font-size: 10px;
+			font-weight: 600;
+		}
+	}
+}

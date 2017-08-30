@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<div class="grid-container post-header">
+				<div class="grid-x grid-padding-x text-center">
+					<div class="cell">
+						<h1 class="article-h1">{{ post.title }}</h1>
+						<p class="blog-author">{{ post.date|date('n.j.Y') }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="grid-container post-body">
+				<div class="grid-x">
+					<div class="cell">
+						<div class="rif">
+							<iframe src="https://www.youtube.com/embed/{{ post.get_field('youtube_url')|slice(-11,null) }}?showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+				<div class="grid-x grid-padding-x align-center">
+					<div class="cell medium-8 large-6">
+						<section class="article-content">
+							<div class="article-body">
+								{{post.content}}
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</article>
+		<section class="grid-container more-posts">
+			<div class="grid-x grid-padding-x">
+				<div class="cell">
+					<h2 class="single-line-height">More Episodes</h2>
+					<hr class="black">
+				</div>
+			</div>
+			<div class="grid-x grid-padding-x small-up-1 medium-up-3">
+				{% for post in more_posts %}
+					<div class="cell">
+						{% include 'tease-post.twig' %}
+					</div>
+				{% endfor %}
+			</div>
+		</section>
+	</div><!-- /content-wrapper -->
+{% endblock %}

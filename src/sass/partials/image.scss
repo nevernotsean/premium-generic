@@ -1,0 +1,119 @@
+//object fit
+
+.object-fit {
+	object-fit: cover;
+}
+
+// backgrounds
+.bg {
+	background: url() center center no-repeat;
+	min-height: 450px;
+	&-cover {
+		@extend .bg;
+		background-size: cover;
+	}
+	&-contain {
+		@extend .bg;
+		background-size: contain;
+	}
+}
+
+// blazy images
+
+.b-lazy {
+	width: 100%;
+	font-size: 0;
+	opacity: 0;
+	transition: opacity 500ms ease;
+	transition-delay: 300ms;
+
+	&.square {
+	}
+	&.b-loaded {
+		opacity: 1;
+	}
+	&.b-error {
+		opacity: 1;
+	}
+}
+
+// icons
+
+.fa.fa-volume-up:before {
+	content: '';
+}
+
+.fa.fa-volume-up {
+	width: 25px;
+	height: 25px;
+	background: url(../img/volume-on.svg) no-repeat center center;
+}
+
+.fa.fa-volume-off:before {
+	content: '';
+}
+
+.fa.fa-volume-off {
+	width: 25px;
+	height: 25px;
+	background: url(../img/volume-off.svg) no-repeat center center;
+}
+i.fa.fa-bars:before {
+	content: '';
+	width: 25px;
+	height: 25px;
+	background: url(../img/hamburguesa_bttn.svg) no-repeat no-repeat;
+	background-size: 25px;
+	display: inline-block;
+}
+i.fa.fa-times:before {
+	content: '';
+	width: 25px;
+	height: 25px;
+	background: url(../img/close_bttn.svg) no-repeat no-repeat;
+	background-size: 25px;
+	display: inline-block;
+}
+
+.chevron::after {
+	border-style: solid;
+	border-width: 0.1em 0.1em 0 0;
+	border-color: #000;
+	content: '';
+	display: inline-block;
+	height: 0.7em;
+	left: 0.2em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.7em;
+}
+
+.chevron.right:after {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.bottom:after {
+	top: -3px;
+	transform: rotate(135deg);
+}
+
+.chevron.left:after {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
+
+// border images
+
+img.border {
+	border: 2px solid black;
+}
+
+// svg
+#cg-svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}

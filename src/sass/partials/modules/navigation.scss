@@ -1,0 +1,162 @@
+header#header {
+	background-color: #fff;
+	border-bottom: 1px solid #cecece;
+	transition: transform 500ms ease;
+	&.hidden {
+		transform: translateY(-100%);
+	}
+	&.fixed {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 99;
+		& + #content {
+			margin-top: 50px;
+			@include breakpoint(medium) {
+				margin-top: 100px;
+			}
+		}
+	}
+	.wrapper {
+		height: 100px;
+		> * {
+			@include flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.menu-links {
+		width: 680px;
+		align-items: center;
+		justify-content: center;
+		// @extend .expanded;
+		li + li {
+			margin-left: 60px;
+		}
+	}
+	.menu-item {
+		text-align: center;
+		* {
+			@include bold-title;
+			text-align: center;
+			font-size: 18px;
+			display: inline-block;
+		}
+		a:hover {
+			@include hover-link;
+		}
+	}
+	.menu-links .menu-item:not(:first-child) {
+		// margin-left: 30px;
+	}
+	.nav-cap {
+		text-align: center;
+		width: 100px;
+	}
+	.social-menu-expand {
+		@include small-type;
+		position: relative;
+		@extend .chevron;
+		@extend .bottom;
+		&:after {
+			margin-left: 5px;
+		}
+		.social-menu {
+			display: none;
+			position: absolute;
+			top: 100%;
+			right: 0px;
+			text-align: right;
+			border: 1px solid #cccccc;
+			background: #fff;
+			border-top: 0;
+		}
+		&:hover {
+			cursor: pointer;
+			.social-menu {
+				display: block;
+			}
+		}
+	}
+}
+@include breakpoint(medium) {
+	.admin-bar header.fixed {
+		top: 32px;
+	}
+}
+
+a.hdr-logo-link {
+	&:after {
+		content: none;
+	}
+	img {
+		width: 50px;
+		height: 50px;
+	}
+	.spin {
+		display: none;
+	}
+	.static {
+		display: block;
+	}
+	&.loading {
+		img.spin {
+			display: block;
+		}
+		img.static {
+			display: none;
+		}
+	}
+}
+
+.menu-toggle {
+	padding: 10px;
+	height: 40px;
+	display: inline-block;
+}
+
+// Mobile Nav
+@include breakpoint(small only) {
+	header#header.hidden {
+		transform: none;
+	}
+}
+.mobile-top-bar {
+	position: relative;
+	height: 40px;
+	max-width: 100vw;
+	overflow-x: hidden;
+	.menu-toggle {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.mobile-logo {
+		height: 40px;
+		padding: 8px;
+		width: auto;
+	}
+}
+
+.close-button:focus {
+	outline: none;
+}
+.mobile-nav {
+	.menu-item {
+		margin-bottom: 5px;
+		a {
+			@include bold-title;
+			font-size: 30px;
+		}
+	}
+	.siteby {
+		@include small-type;
+	}
+	a.hdr-logo-link-mobile {
+		display: inline-block;
+		margin: 20px 0;
+		img {
+			width: 100px;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+	<div class="grid-container">
+		<div class="hero grid-x grid-padding-x">
+			{% if posts.length > 1 %}
+			<div class="slider">
+			{% else %}
+			<div class="not-slider">
+			{% endif %}
+			{% for post in posts %}
+				<div class="slide">
+						<div class="bg-cover" style="background-image:url('{{ post.thumbnail.src }}')"></div>
+						<div class="slide-content grid-container">
+							<div class="grid-x grid-padding-x grid-padding-y">
+								<div class="cell shrink post-meta">
+									<span class="post-date">{{post.date|date('n.j.Y')}}</span>
+								</div>
+								<div class="cell auto post-content text-center">
+									<h2 class="post-title">{{post.title}}</h2>
+									<div class="post-excerpt">{{ post.post_content|excerpt(15) }}</div>
+								</div>
+								<div class="cell shrink post-meta">
+									<a href="{{ post.link }}">Read More</a>
+								</div>
+							</div>
+						</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>

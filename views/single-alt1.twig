@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x text-center post-header">
+					<div class="cell">
+						<h1 class="article-h1">{{ post.title }}</h1>
+					</div>
+				</div>
+				<div class="post-body">
+					<div class="grid-x grid-padding-x">
+						<div class="cell medium-6">
+							<img class="single-hero-image" src="{{post.thumbnail | resize(1200) }}" alt="">
+						</div>
+						<div class="cell medium-6">
+							<section class="article-content">
+								<div class="article-body">
+									{{post.content}}
+								</div>
+							</section>
+						</div>
+					</div>
+					<div class="more-posts">
+						<div class="grid-x grid-padding-x">
+							<div class="cell">
+								<h2 class="single-line-height">{{ post.title }} Releases</h2>
+								<hr class="black">
+							</div>
+						</div>
+						<div class="grid-x grid-padding-x small-up-1 medium-up-4">
+							{% for post in related_albums %}
+								<div class="cell">
+									{% include 'tease-post.twig' with { 'square': true } %}
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,188 @@
+// home page
+.home {
+	#content {
+		margin-top: 0 !important;
+	}
+	.features-grid {
+		.post-title {
+			font-size: 36px;
+		}
+		.post-content {
+			display: none;
+		}
+	}
+	.hero {
+		position: relative;
+		padding-bottom: 0;
+		padding-top: 100px;
+
+		height: calc(100vh - 100px);
+		overflow: hidden;
+
+		video#player {
+			position: absolute;
+			width: 100%;
+			top: calc(50% + 50px);
+			transform: translateY(-50%);
+		}
+
+		@include breakpoint(small only) {
+			padding-top: 40px;
+			height: auto;
+
+			video#player {
+				position: static;
+				transform: none;
+			}
+		}
+		margin-bottom: 50px;
+		background-color: #000;
+		> video {
+			// position: absolute;
+			// width: 100%;
+			// height: 100%;
+			background: url(../img/loading-blk.gif) center center no-repeat;
+			background-size: 50px;
+		}
+
+		.mute {
+			display: block;
+			position: absolute;
+			left: 20px;
+			bottom: 20px;
+			color: white;
+			i {
+				font-size: 13px;
+				letter-spacing: 0.1em;
+				width: auto;
+				color: white;
+				display: block;
+				background: none;
+				font-style: normal;
+				&.fa-volume-off {
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+	$diesize: 350px;
+	$diesizesmall: 150px;
+	.underside {
+		background-color: #000;
+		position: fixed;
+		z-index: 997;
+		width: 100%;
+		max-width: 100vw;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transition: all 1000ms ease;
+		opacity: 1;
+	}
+	#loading-bar {
+		background-color: #666;
+		position: fixed;
+		width: 100%;
+		max-width: 100vw;
+		height: 350px;
+		top: calc(50% - #{$diesize / 2});
+		transition: all 500ms ease;
+		z-index: 998;
+	}
+	.curtain {
+		position: fixed;
+		z-index: 99999;
+		width: 100%;
+		max-width: 100vw;
+		height: 100%;
+		top: 0;
+		left: 0;
+		// pointer-events: none;
+		// clip-path: url(#clip);
+		// background: white;
+		transition: all 500ms ease;
+
+		background: url(../img/logo-cinematic-diecut.svg) no-repeat center center;
+		background-size: $diesize + 5;
+		@include breakpoint(small only) {
+			background-size: $diesizesmall + 5;
+			background-position: center 10%;
+		}
+
+		.border- {
+			&left,
+			&right,
+			&top,
+			&bottom {
+				background-color: #fff;
+				position: fixed;
+				z-index: 999;
+			}
+			&left,
+			&right {
+				height: 100%;
+				width: calc(50% - #{$diesize / 2});
+				@include breakpoint(small only) {
+					width: calc(50vw - #{$diesizesmall / 2});
+				}
+				top: 0;
+				bottom: 0;
+			}
+			&top,
+			&bottom {
+				width: 100%;
+				max-width: 100vw;
+				height: calc(50% - #{$diesize / 2});
+				left: 0;
+				right: 0;
+			}
+			&left {
+				left: 0;
+			}
+			&right {
+				right: 0;
+			}
+			&top {
+				top: 0;
+				@include breakpoint(small only) {
+					height: calc(20% - #{$diesizesmall / 2});
+				}
+			}
+			&bottom {
+				bottom: 0;
+				@include breakpoint(small only) {
+					height: calc(80% - #{$diesizesmall / 2});
+				}
+			}
+		}
+	}
+	&.remove-curtain .curtain {
+		transform: translateY(-100%);
+	}
+	h2.enter {
+		font-size: 48px;
+		position: absolute;
+		left: 50%;
+		top: calc(50% + 180px);
+		z-index: 999999;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: all 1000ms ease;
+		transition-delay: 1000ms;
+		cursor: pointer;
+		color: #000;
+		@include breakpoint(small only) {
+			top: calc(50%);
+		}
+	}
+	.skip-reveal {
+		h2.enter {
+			opacity: 1;
+		}
+	}
+	&.remove-curtain {
+		h2.enter {
+			display: none;
+		}
+	}
+}

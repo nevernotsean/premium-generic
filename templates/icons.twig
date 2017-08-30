@@ -1,0 +1,36 @@
+
+{% if field %}
+
+  {% if field == 'Spotify' %}
+
+  <i class="fa fa-spotify"><span>Spotify</span></i>
+
+   {% elseif field == 'iTunes' %}
+
+  <i class="fa fa-music"><span>iTunes</span></i>
+
+    {% elseif field == 'Apple Music' %}
+
+  <i class="fa fa-apple"><span>Music</span></i>
+
+    {% elseif field == 'Soundcloud' %}
+
+  <i class="fa fa-soundcloud"><span>Soundcloud</span></i>
+
+    {% elseif field == 'YouTube' %}
+
+  <i class="fa fa-youtube-play"><span>Youtube</span></i>
+
+    {% elseif field == 'Amazon' %}
+
+  <i class="fa fa-amazon"><span>Amazon MP3</span></i>
+
+    {% elseif field == 'Google Play' %}
+
+  <i class="fa fa-play"><span>Google Play</span></i>
+
+    {% else %}
+
+  {% endif %}
+
+{% endif %}

@@ -1,0 +1,45 @@
+.page-title.article-h1 {
+	@include bold-title;
+	text-align: center;
+	padding: 50px 0;
+	margin: 0;
+}
+
+.article-body.abs-centered {
+	position: relative;
+	.article-body-wrapper {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+.article-body-wrapper {
+	padding-left: $global-padding;
+	padding-right: $global-padding;
+}
+
+// Roster Page
+.post-type-archive-portfolio {
+	.base-title {
+		padding: 50px 0 25px 0;
+		margin: 0;
+	}
+	.roster-logos {
+		margin-bottom: 50px;
+	}
+	.post-type-portfolio {
+		header > span,
+		footer,
+		.post-content {
+			display: none;
+		}
+		.post-title {
+			text-align: center;
+		}
+	}
+}
+
+// releases page
+.page-template-timber-releases-page-custom {
+}

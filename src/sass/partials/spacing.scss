@@ -1,0 +1,21 @@
+$spacing-base: 50px;
+
+@mixin whitespace-vert {
+	padding: $spacing-base 0;
+}
+
+@mixin whitespace-top {
+	padding-top: $spacing-base;
+}
+
+@mixin whitespace-bottom {
+	padding-bottom: $spacing-base;
+}
+
+.cell.grow {
+	flex: 1 0 auto;
+}
+.divider {
+	margin: 0 5px;
+	text-align: center;
+}

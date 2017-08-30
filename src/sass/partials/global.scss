@@ -1,0 +1,88 @@
+html,
+body {
+	overflow-x: hidden;
+	max-width: 100vw;
+}
+
+@include breakpoint(small only) {
+	#header {
+		overflow-x: hidden;
+		max-width: 100vw;
+	}
+}
+
+.align-center {
+	align-items: center;
+	justify-content: center;
+}
+
+hr.black {
+	border-top: 2px solid black;
+}
+
+.single-line-height {
+	line-height: 0.6;
+}
+
+.post-header {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+// video
+iframe {
+	border: none;
+}
+
+.rif {
+	position: relative;
+	height: 0;
+	padding-bottom: 50%;
+	iframe {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+}
+
+video {
+	width: 100% !important;
+	height: auto !important;
+}
+
+// parallax
+$parallaxVal: 3;
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	.off-canvas-content {
+		height: 100%;
+		-webkit-perspective: $parallaxVal * 300px;
+		perspective: 1000px;
+		-webkit-perspective-origin: 0 0;
+		perspective-origin: 0 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.parallax {
+		text-align: center;
+		position: fixed;
+		width: 100%;
+		height: 100px;
+		top: 90vh;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		z-index: -1;
+
+		> * {
+			-webkit-transform: translateZ(-200px * $parallaxVal)
+				translateX(120px * $parallaxVal) translateY(120px * $parallaxVal)
+				scale($parallaxVal);
+			transform: translateZ(-200px * $parallaxVal)
+				translateX(120px * $parallaxVal) translateY(120px * $parallaxVal)
+				scale($parallaxVal);
+		}
+	}
+}

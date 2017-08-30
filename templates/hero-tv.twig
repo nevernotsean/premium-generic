@@ -1,0 +1,39 @@
+<div class="hero">
+	{% if posts|length > 1 %}
+	<div class="carousel">
+	{% else %}
+	<div class="not-carousel {{posts|length}}">
+	{% endif %}
+	{% for post in posts %}
+		<div class="slide">
+				{% if post.get_field('youtube_url') %}
+				<div class="rif">
+					<iframe src="https://www.youtube.com/embed/{{ post.get_field('youtube_url')|slice(-11,null) }}" frameborder="0" allowfullscreen></iframe>
+				</div>
+				{% else %}
+					{% if post.thumbnail.src %}
+						<img src="{{ post.thumbnail.src }}" alt="">
+					{% endif %}
+				{% endif %}
+				<div class="slide-content grid-container">
+					<div class="grid-x grid-padding-x grid-padding-y">
+						<div class="cell small-6 medium-2 post-meta">
+							<span class="post-date">{{post.date|date('n.j.Y')}}</span>
+						</div>
+						<div class="cell auto post-content text-center">
+							<h2 class="post-title">{{post.title}}</h2>
+							<div class="post-excerpt">{{ post.post_content|excerpt(15) }}</div>
+						</div>
+						<div class="cell small-6 medium-2 post-meta text-right">
+							<a href="{{ post.link }}">Read More</a>
+						</div>
+					</div>
+				</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+{#
+	<!-- https://img.youtube.com/vi/TeQW-9Cg8qs/maxresdefault.jpg -->
+	<!-- <div class="bg-cover" style="background-image:url('https://img.youtube.com/vi/{{ post.get_field('youtube_url')|slice(-11,null) }}/maxresdefault.jpg')"></div> -->
+#}

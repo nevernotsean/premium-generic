@@ -1,0 +1,174 @@
+.single {
+	.post-header {
+		@include whitespace-vert;
+		.blog-author {
+			margin-bottom: 0;
+		}
+	}
+	.article-body {
+		margin: 50px 0;
+
+		p iframe {
+			margin: 30px 0;
+		}
+		a {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		iframe {
+			max-width: 100%;
+		}
+	}
+	.single-hero-image {
+		width: 100%;
+		height: 600px;
+		object-fit: cover;
+		object-position: 50% 30%;
+	}
+	.more-posts article.article-item {
+		margin-bottom: 0;
+	}
+
+	.addtoany_share_save_container.addtoany_content_bottom {
+		text-align: center;
+	}
+}
+
+.single-portfolio {
+	.article-body {
+		margin: 0;
+	}
+	.more-posts {
+		@include whitespace-top;
+	}
+}
+
+.single-muso-album {
+	.post-header {
+		padding-top: 26px;
+	}
+	.artist-name {
+		min-height: 14px;
+	}
+	.artist-link {
+		@include small-type;
+		font-weight: bold;
+		text-transform: capitalize;
+		letter-spacing: 0.1em;
+	}
+	.albumlist-wrapper {
+		min-height: 25px;
+	}
+	.purchase-links {
+		margin-bottom: 0;
+	}
+	.article-content {
+		position: relative;
+
+		.post-date {
+			position: absolute;
+			top: -2.2em;
+			right: 0;
+			font-size: 11px;
+			font-weight: bolder;
+			padding-bottom: 8px;
+		}
+	}
+	.article-body {
+		margin-top: 20px;
+
+		.track-list {
+			overflow-y: scroll;
+			border-bottom: 2px solid black;
+			// max-height: 300px;
+
+			&:before {
+				content: 'Track List';
+				display: block;
+				position: absolute;
+				top: -2.2em;
+				left: 0;
+				width: 100%;
+				font-size: 11px;
+				font-weight: bolder;
+				padding-bottom: 8px;
+				border-bottom: 2px solid black;
+			}
+			ol {
+				margin: 0;
+			}
+			li {
+				padding: 17px 0;
+				list-style: none;
+				font-size: 12px;
+				font-weight: bolder;
+				letter-spacing: 0.15em;
+				border-bottom: 1px solid #ececec;
+				line-height: 1;
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 50px;
+				bottom: 0;
+				left: 0;
+				background-image: (
+					linear-gradient(
+						top,
+						rgba(255, 255, 255, 0) 0%,
+						rgba(255, 255, 255, 0.01) 1%,
+						rgba(255, 255, 255, 1) 100%
+					)
+				);
+			}
+		}
+		.album-description {
+			position: relative;
+			padding-top: 20px;
+			margin-top: 20px;
+			&:before {
+				content: 'About the Album';
+				display: block;
+				position: absolute;
+				top: -2.2em;
+				left: 0;
+				width: 100%;
+				font-size: 11px;
+				font-weight: bolder;
+				padding-bottom: 8px;
+				margin-top: 12px;
+				border-bottom: 2px solid black;
+			}
+		}
+	}
+	.more-posts {
+		@include whitespace-top;
+	}
+	.flex-album-list {
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+		margin-bottom: 0;
+
+		.albumlink {
+			@include small-type;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			padding: 0 10px;
+			text-align: center;
+			flex: 0 1 auto;
+		}
+	}
+}
+
+.single-radio {
+	article {
+		.article-body {
+			margin: 0;
+			@include breakpoint(small only) {
+				margin: 20px;
+			}
+		}
+	}
+}
