@@ -18,6 +18,9 @@ class Site extends TimberSite {
 
 	function __construct() {
 
+
+		add_filter('templates_path', 'move_templates');
+
 		// Post theme suport
 		add_theme_support( 'post-formats' );
 		add_theme_support( 'post-thumbnails' );
@@ -67,6 +70,10 @@ class Site extends TimberSite {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		return $context;
+	}
+
+	function move_templates($path){
+		return 'page-templates';
 	}
 
 	// function myfoo( $text ) {
