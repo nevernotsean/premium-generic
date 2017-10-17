@@ -14,7 +14,7 @@ module.exports = {
 	externals: {
 		foundation: 'foundation-sites',
 		slick: 'slick-carousel',
-		fontawesome: 'fontawesome'
+		fontawesome: 'font-awesome'
 	},
 	resolve: {
 		modules: [path.resolve(__dirname, './src'), 'node_modules']
